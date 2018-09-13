@@ -33,3 +33,21 @@ end
 get "/locations" do
   File.read('public/index.html')
 end
+
+get '/api/v1/locations.json' do
+  status 200
+  content_type :json
+  File.read('locations.json')
+end
+
+post '/api/v1/locations.json' do
+  request_json = JSON.parse(request.body.read)
+
+  if request_json["location"]
+    write_to_json_file(request_json["location"])
+    status 200
+  else
+    status 500
+    { error: "Oops, something went wrong!" }.to_json
+  end
+end
