@@ -19,9 +19,6 @@ def write_to_json_file(location)
     locations: locations_array["locations"].concat([new_location])
   }
 
-  # Either of these next two lines will work: pretty_generate just gives us line
-  # breaks and indentation in our .json file (making it easier on the eyes)
-  # updated_locations_json = updated_locations.to_json
   updated_locations_json = JSON.pretty_generate(updated_locations, indent: ' ')
   File.write("locations.json", updated_locations_json)
 end
