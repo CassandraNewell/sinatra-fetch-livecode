@@ -20,12 +20,8 @@ def write_to_json_file(location)
     locations: locations_array["locations"].concat([new_location])
   }
 
-
-  # Either of these next two lines will work: pretty_generate just gives us line
-  # breaks and indentation in our .json file (making it easier on the eyes)
-
-  updated_locations_json = updated_locations.to_json
-  # updated_locations_json = JSON.pretty_generate(updated_locations, indent: ' ')
+  # updated_locations_json = updated_locations.to_json
+  updated_locations_json = JSON.pretty_generate(updated_locations, indent: ' ')
 
   File.write("locations.json", updated_locations_json)
 end
@@ -36,4 +32,20 @@ end
 
 get "/locations" do
   File.read('public/index.html')
+end
+
+get '/api/v1/locations.json' do
+  status 200
+  content_type :json
+  File.read('locations.json')
+end
+
+post '/api/v1/locations.json' do
+  new_location = JSON.parse(request.body.read)["location"]
+  if new_location["city"] != ""
+    write_to_json_file(new_location)
+    status 200
+  else
+    status 500
+  end
 end

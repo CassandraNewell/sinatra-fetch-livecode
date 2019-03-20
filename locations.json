@@ -9,6 +9,31 @@
    "id": 2,
    "city": "St. Petersburg",
    "country": "Russia"
+  },
+  {
+   "id": 3,
+   "city": "Derry",
+   "country": "NH"
+  },
+  {
+   "id": 4,
+   "city": "Londonderry",
+   "country": "NH"
+  },
+  {
+   "id": 5,
+   "city": "Londonderry",
+   "country": "NH"
+  },
+  {
+   "id": 6,
+   "city": "Londonderry",
+   "country": "NH"
+  },
+  {
+   "id": 7,
+   "city": "Nashua",
+   "country": "NH"
   }
  ]
 }
