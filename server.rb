@@ -37,3 +37,26 @@ end
 get "/locations" do
   File.read('public/index.html')
 end
+
+get "/api/v1/locations.json" do
+  status 200
+  content_type :json
+  File.read('locations.json')
+end
+
+post "/api/v1/locations.json" do
+  new_location = JSON.parse(request.body.read)["location"]
+
+
+  if new_location["city"]
+    write_to_json_file(new_location)
+
+    status 200
+    content_type :json
+    {location: new_location}.to_json
+  else
+    status 500
+    content_type :json
+    { error: "everything is bad!"}.to_json
+  end
+end
