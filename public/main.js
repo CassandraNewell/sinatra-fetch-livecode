@@ -11,6 +11,17 @@ let fetchLocations = () => {
 }
 
 let postLocation = (event) => {
+  event.preventDefault()
+
+  let cityInputField = document.getElementById('city')
+  let countryInputField = document.getElementById('country')
+
+  let newLocation = {
+    location: {
+      city: cityInputField.value,
+      country: countryInputField.value
+    }
+  }
   # Your code here
 }
 
