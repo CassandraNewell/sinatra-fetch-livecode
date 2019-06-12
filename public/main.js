@@ -7,7 +7,7 @@ let appendLocationsArrayToHtml = (locations) => {
 }
 
 let fetchLocations = () => {
-  # Your code here
+  // Your code here
 }
 
 let postLocation = (event) => {
@@ -22,7 +22,7 @@ let postLocation = (event) => {
       country: countryInputField.value
     }
   }
-  # Your code here
+  // Your code here
 }
 
 fetchLocations()
